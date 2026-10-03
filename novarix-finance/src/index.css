@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens (HSL channels). Light = zinc-50 canvas, white surfaces. Dark = zinc-950 canvas. */
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --surface: 0 0% 100%;
+    --subtle: 240 4.8% 95.9%;
+    --foreground: 240 10% 3.9%;
+    --muted-foreground: 240 3.8% 42%;
+    --border: 240 5.9% 90%;
+    --border-strong: 240 4.9% 83.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --ring: 240 5.9% 10%;
+    --positive: 163 94% 24%;
+    --negative: 0 72% 45%;
+    --warning: 32 95% 36%;
+    --info: 201 96% 32%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --surface: 240 6% 7%;
+    --subtle: 240 5.9% 10%;
+    --foreground: 0 0% 98%;
+    --muted-foreground: 240 5% 64.9%;
+    --border: 240 3.7% 15.9%;
+    --border-strong: 240 5.3% 26.1%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --ring: 240 4.9% 83.9%;
+    --positive: 158 64% 52%;
+    --negative: 0 91% 71%;
+    --warning: 43 96% 56%;
+    --info: 199 89% 55%;
+  }
+
+  * { @apply border-border; }
+  html { color-scheme: light; }
+  html.dark { color-scheme: dark; }
+  body { @apply bg-background font-sans text-base text-foreground antialiased; }
+  h1, h2, h3 { @apply tracking-tight; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-3.5 text-sm font-medium transition-colors
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background
+      disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-primary { @apply bg-primary text-primary-foreground hover:bg-primary/90; }
+  .btn-secondary { @apply border border-border-strong bg-surface text-foreground hover:bg-subtle; }
+  .btn-ghost { @apply text-foreground hover:bg-subtle; }
+  .btn-icon { @apply inline-flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-subtle hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring; }
+  .input {
+    @apply h-9 w-full rounded-md border border-border-strong bg-surface px-3 text-sm text-foreground placeholder:text-muted-foreground
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background;
+  }
+  .label { @apply mb-1.5 block text-xs font-medium text-foreground; }
+  .card { @apply rounded-lg border border-border bg-surface; }
+  .num { font-variant-numeric: tabular-nums; }
+}
