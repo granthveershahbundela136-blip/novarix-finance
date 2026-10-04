@@ -1,71 +1,7 @@
-import {
-  ArrowLeftRight,
-  Landmark,
-  LayoutDashboard,
-  Lightbulb,
-  PieChart,
-  Settings,
-  Target,
-  type LucideIcon,
-} from 'lucide-react'
+export const DEFAULT_LOCALE = 'en-US';
 
-export const INCOME_CATEGORIES = ['Salary', 'Freelance', 'Business', 'Other Income'] as const
-export const EXPENSE_CATEGORIES = [
-  'Food',
-  'Transport',
-  'Shopping',
-  'Entertainment',
-  'Bills',
-  'Education',
-  'Health',
-  'Travel',
-  'Subscriptions',
-  'Other',
-] as const
+export const BRANDING_CREDIT = "Novarix Finance - Crafted By Novarix - Founded By Granthveer Bundela";
 
-export const ACCOUNT_TYPES = ['Cash', 'Bank', 'Savings', 'Wallet', 'Other'] as const
-
-export const DEFAULT_CURRENCY = 'INR'
-export const DEFAULT_LOCALE = 'en-IN'
-
-export const BRANDING_CREDIT =
-  'Novarix Finance - Crafted By Novarix - Founded By Granthveer Bundela'
-
-export const ROUTES = {
-  landing: '/',
-  login: '/login',
-  signup: '/signup',
-  app: '/app',
-  transactions: '/app/transactions',
-  accounts: '/app/accounts',
-  budgets: '/app/budgets',
-  goals: '/app/goals',
-  insights: '/app/insights',
-  analytics: '/app/analytics',
-  settings: '/app/settings',
-} as const
-
-export interface NavItem {
-  label: string
-  to: string
-  icon: LucideIcon
-  end?: boolean
-}
-
-/** Shown in the desktop sidebar and the mobile bottom bar (keep at 5 for mobile). */
-export const PRIMARY_NAV: NavItem[] = [
-  { label: 'Dashboard', to: ROUTES.app, icon: LayoutDashboard, end: true },
-  { label: 'Transactions', to: ROUTES.transactions, icon: ArrowLeftRight },
-  { label: 'Accounts', to: ROUTES.accounts, icon: Landmark },
-  { label: 'Budgets', to: ROUTES.budgets, icon: PieChart },
-  { label: 'Goals', to: ROUTES.goals, icon: Target },
-]
-
-/** Sidebar secondary group; icon buttons in the mobile top bar. */
-export const SECONDARY_NAV: NavItem[] = [
-  { label: 'Insights', to: ROUTES.insights, icon: Lightbulb },
-  { label: 'Settings', to: ROUTES.settings, icon: Settings },
-]
 export const CURRENCIES = [
   { code: 'USD', name: 'US Dollar ($)' },
   { code: 'EUR', name: 'Euro (€)' },
@@ -74,4 +10,35 @@ export const CURRENCIES = [
   { code: 'CAD', name: 'Canadian Dollar (C$)' },
   { code: 'AUD', name: 'Australian Dollar (A$)' },
   { code: 'JPY', name: 'Japanese Yen (¥)' }
+];
+
+export const EXPENSE_CATEGORIES = [
+  'Housing',
+  'Utilities',
+  'Food & Dining',
+  'Transportation',
+  'Entertainment',
+  'Healthcare',
+  'Shopping',
+  'Personal Care',
+  'Education',
+  'Miscellaneous'
+];
+
+export const INCOME_CATEGORIES = [
+  'Salary',
+  'Freelance',
+  'Investments',
+  'Gifts',
+  'Other Income'
+];
+
+export const PRIMARY_NAV = [
+  { label: 'Dashboard', path: '/app' },
+  { label: 'Transactions', path: '/app/transactions' },
+  { label: 'Accounts', path: '/app/accounts' },
+  { label: 'Budgets', path: '/app/budgets' },
+  { label: 'Goals', path: '/app/goals' },
+  { label: 'Insights', path: '/app/insights' },
+  { label: 'Settings', path: '/app/settings' }
 ];
