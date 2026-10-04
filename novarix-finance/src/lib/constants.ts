@@ -23,6 +23,15 @@ export const ROUTES = {
   SETTINGS: '/app/settings'
 };
 
+export const ACCOUNT_TYPES = [
+  'checking',
+  'savings',
+  'credit_card',
+  'investment',
+  'loan',
+  'other'
+] as const;
+
 export const CURRENCIES = [
   { code: 'USD', name: 'US Dollar ($)' },
   { code: 'EUR', name: 'Euro (€)' },
