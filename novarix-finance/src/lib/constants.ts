@@ -5,6 +5,7 @@ export interface NavItem {
 }
 
 export const DEFAULT_LOCALE = 'en-US';
+export const DEFAULT_CURRENCY = 'USD';
 
 export const BRANDING_CREDIT = "Novarix Finance - Crafted By Novarix - Founded By Granthveer Bundela";
 
