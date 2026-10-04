@@ -436,8 +436,8 @@ function TransactionForm({ initial, accounts, onSaved, onCancel }: TransactionFo
               <label htmlFor="acc-type" className="label">Type</label>
               <select id="acc-type" className="input" value={newType} onChange={(e) => setNewType(e.target.value as AccountType)}>
                 {ACCOUNT_TYPES.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
+                  <option key={t.value} value={t.value}>
+                    {t.label}
                   </option>
                 ))}
               </select>

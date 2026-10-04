@@ -49,7 +49,7 @@ const Swatch = ({ color, label }: { color: string; label: string }) => (
 export function Analytics() {
   const { currency, now, transactions, budgets, goals, month, ready, error, reload } = useFinanceData()
   const money = (n: number) => formatCurrency(n, currency)
-  const compact = (n: number) => formatCurrency(n, currency, { compact: true })
+  const compact = (n: number) => formatCurrency(n, currency, { notation: 'compact' })
 
   const trend = useMemo(() => monthlySeries(transactions, 6, now), [transactions, now])
   const hasTrendData = trend.some((p) => p.income > 0 || p.expenses > 0)

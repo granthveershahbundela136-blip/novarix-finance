@@ -13,6 +13,18 @@ import {
 export const DEFAULT_CURRENCY = 'USD'
 export const DEFAULT_LOCALE = 'en-US'
 
+export const CURRENCIES = [
+  { code: 'USD', label: 'US Dollar' },
+  { code: 'EUR', label: 'Euro' },
+  { code: 'GBP', label: 'British Pound' },
+  { code: 'CAD', label: 'Canadian Dollar' },
+  { code: 'AUD', label: 'Australian Dollar' },
+  { code: 'JPY', label: 'Japanese Yen' },
+  { code: 'CHF', label: 'Swiss Franc' },
+  { code: 'CNY', label: 'Chinese Yuan' },
+  { code: 'INR', label: 'Indian Rupee' },
+] as const
+
 export const ACCOUNT_TYPES = [
   { value: 'checking', label: 'Checking' },
   { value: 'savings', label: 'Savings' },
@@ -34,6 +46,16 @@ export const EXPENSE_CATEGORIES = [
   'Personal Care',
   'Travel',
   'Debt Payment',
+  'Other',
+] as const
+
+export const INCOME_CATEGORIES = [
+  'Salary',
+  'Freelance',
+  'Business',
+  'Investment',
+  'Gift',
+  'Refund',
   'Other',
 ] as const
 

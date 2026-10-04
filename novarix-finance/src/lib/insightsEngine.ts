@@ -299,7 +299,7 @@ export function generateFinancialInsights(
         ? `${money(remaining / (daysLeftToGoal / 30.44))} per month`
         : `${money(remaining)} within ${plural(daysLeftToGoal, 'day')}`
     // Elapsed share of the goal's lifetime, from when it was created to its deadline.
-    const lifetime = daysUntil(g.deadline, new Date(g.created_at))
+    const lifetime = daysUntil(g.deadline, new Date(g.created_at ?? Date.now()))
     const elapsed = lifetime > 0 ? Math.min(1, Math.max(0, (lifetime - daysLeftToGoal) / lifetime)) : 0
 
     if (elapsed > 0.05 && progress < elapsed - RULES.goalBehindTolerance) {

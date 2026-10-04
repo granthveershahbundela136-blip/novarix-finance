@@ -198,8 +198,8 @@ function AccountForm({
         <label htmlFor="account-type" className="label">Type</label>
         <select id="account-type" className="input" value={type} onChange={(e) => setType(e.target.value as AccountType)}>
           {ACCOUNT_TYPES.map((t) => (
-            <option key={t} value={t}>
-              {t}
+            <option key={t.value} value={t.value}>
+              {t.label}
             </option>
           ))}
         </select>

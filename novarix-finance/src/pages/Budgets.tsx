@@ -29,7 +29,7 @@ const STATUS = {
 
 export function Budgets() {
   const currency = useCurrency()
-  const { from, to } = useMemo(() => monthRange(), [])
+  const { start: from, end: to } = useMemo(() => monthRange(), [])
   const monthLabel = useMemo(
     () => new Intl.DateTimeFormat(DEFAULT_LOCALE, { month: 'long', year: 'numeric' }).format(new Date()),
     [],
