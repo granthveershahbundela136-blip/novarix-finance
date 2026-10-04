@@ -11,6 +11,7 @@ import {
 } from 'lucide-react'
 
 export const DEFAULT_CURRENCY = 'USD'
+export const DEFAULT_LOCALE = 'en-US'
 
 export const ACCOUNT_TYPES = [
   { value: 'checking', label: 'Checking' },
