@@ -1,6 +1,6 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import { AppRoutes as App } from './routes/AppRoutes'
 import './index.css'
 
@@ -37,11 +37,12 @@ if (!rootElement) {
   document.body.innerHTML = '<h1 style="color:red;padding:20px;">Root element #root not found in index.html</h1>';
 } else {
   ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
-    <ErrorBoundary>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ErrorBoundary>
-  </React.StrictMode>
-);
+    <React.StrictMode>
+      <ErrorBoundary>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ErrorBoundary>
+    </React.StrictMode>
+  );
+}
