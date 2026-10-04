@@ -74,4 +74,3 @@ export const PRIMARY_NAV: NavItem[] = [
 
 export const SECONDARY_NAV: NavItem[] = [
   { label: 'Settings', path: '/app/settings' }
-];
