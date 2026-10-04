@@ -22,6 +22,21 @@ export const ACCOUNT_TYPES = [
   { value: 'other', label: 'Other' },
 ] as const
 
+export const EXPENSE_CATEGORIES = [
+  'Housing',
+  'Transportation',
+  'Food & Dining',
+  'Utilities',
+  'Healthcare',
+  'Entertainment',
+  'Shopping',
+  'Education',
+  'Personal Care',
+  'Travel',
+  'Debt Payment',
+  'Other',
+] as const
+
 export interface NavItem {
   to: string
   label: string
