@@ -2,6 +2,20 @@ export const DEFAULT_LOCALE = 'en-US';
 
 export const BRANDING_CREDIT = "Novarix Finance - Crafted By Novarix - Founded By Granthveer Bundela";
 
+export const ROUTES = {
+  HOME: '/',
+  LOGIN: '/login',
+  SIGNUP: '/signup',
+  APP: '/app',
+  DASHBOARD: '/app',
+  TRANSACTIONS: '/app/transactions',
+  ACCOUNTS: '/app/accounts',
+  BUDGETS: '/app/budgets',
+  GOALS: '/app/goals',
+  INSIGHTS: '/app/insights',
+  SETTINGS: '/app/settings'
+};
+
 export const CURRENCIES = [
   { code: 'USD', name: 'US Dollar ($)' },
   { code: 'EUR', name: 'Euro (€)' },
