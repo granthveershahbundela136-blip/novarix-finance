@@ -10,6 +10,8 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 
+export const DEFAULT_CURRENCY = 'USD'
+
 export interface NavItem {
   to: string
   label: string
