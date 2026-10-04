@@ -1,48 +1,58 @@
-import type { ReactNode } from 'react'
+import React from 'react'
+import { AlertCircle, FolderOpen, Loader2 } from 'lucide-react'
+
+export function LoadingRows({ rows = 3 }: { rows?: number }) {
+  return (
+    <div className="space-y-2 p-4">
+      {Array.from({ length: rows }).map((_, i) => (
+        <div key={i} className="h-10 w-full animate-pulse rounded-md bg-subtle" />
+      ))}
+    </div>
+  )
+}
 
 export function EmptyState({
   title = 'No items found',
-  description,
+  description = 'There is no data to display right now.',
   action,
 }: {
   title?: string
   description?: string
-  action?: ReactNode
+  action?: React.ReactNode
 }) {
   return (
     <div className="flex flex-col items-center justify-center p-8 text-center">
-      <h3 className="text-sm font-semibold">{title}</h3>
-      {description ? <p className="mt-1 text-xs text-muted-foreground">{description}</p> : null}
-      {action ? <div className="mt-4">{action}</div> : null}
+      <FolderOpen className="h-10 w-10 text-muted-foreground" />
+      <h3 className="mt-4 text-sm font-semibold text-foreground">{title}</h3>
+      <p className="mt-1 text-xs text-muted-foreground">{description}</p>
+      {action && <div className="mt-4">{action}</div>}
     </div>
   )
 }
 
-export function ErrorState({ message, onRetry }: { message: string; onRetry?: () => void }) {
+export function ErrorState({
+  title = 'Something went wrong',
+  description = 'Failed to load data. Please try again.',
+  retry,
+}: {
+  title?: string
+  description?: string
+  retry?: () => void
+}) {
   return (
     <div className="flex flex-col items-center justify-center p-8 text-center">
-      <p className="text-sm font-medium text-negative">{message || 'Something went wrong.'}</p>
-      {onRetry ? (
-        <button type="button" onClick={onRetry} className="btn btn-secondary mt-4 h-8">
-          Try again
+      <AlertCircle className="h-10 w-10 text-red-500" />
+      <h3 className="mt-4 text-sm font-semibold text-foreground">{title}</h3>
+      <p className="mt-1 text-xs text-muted-foreground">{description}</p>
+      {retry && (
+        <button
+          type="button"
+          onClick={retry}
+          className="mt-4 rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground shadow hover:bg-primary/90"
+        >
+          Try Again
         </button>
-      ) : null}
-    </div>
-  )
-}
-
-export function LoadingRows({ count = 3 }: { count?: number }) {
-  return (
-    <div className="animate-pulse divide-y divide-border">
-      {Array.from({ length: count }).map((_, i) => (
-        <div key={i} className="flex items-center justify-between p-4">
-          <div className="space-y-2">
-            <div className="h-4 w-32 rounded bg-subtle" />
-            <div className="h-3 w-20 rounded bg-subtle" />
-          </div>
-          <div className="h-4 w-16 rounded bg-subtle" />
-        </div>
-      ))}
+      )}
     </div>
   )
 }
