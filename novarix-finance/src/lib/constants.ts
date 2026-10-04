@@ -47,4 +47,4 @@ export const SECONDARY_NAV: NavItem[] = [
   { to: ROUTES.settings, label: 'Settings', icon: Settings },
 ]
 
-export const BRANDING_CREDIT = 'Novarix Finance'
+export const BRANDING_CREDIT = 'Novarix Finance' 
