@@ -66,3 +66,12 @@ export const SECONDARY_NAV: NavItem[] = [
   { label: 'Insights', to: ROUTES.insights, icon: Lightbulb },
   { label: 'Settings', to: ROUTES.settings, icon: Settings },
 ]
+export const CURRENCIES = [
+  { code: 'USD', name: 'US Dollar ($)' },
+  { code: 'EUR', name: 'Euro (€)' },
+  { code: 'GBP', name: 'British Pound (£)' },
+  { code: 'INR', name: 'Indian Rupee (₹)' },
+  { code: 'CAD', name: 'Canadian Dollar (C$)' },
+  { code: 'AUD', name: 'Australian Dollar (A$)' },
+  { code: 'JPY', name: 'Japanese Yen (¥)' }
+];
