@@ -12,6 +12,15 @@ import {
 
 export const DEFAULT_CURRENCY = 'USD'
 
+export const ACCOUNT_TYPES = [
+  { value: 'checking', label: 'Checking' },
+  { value: 'savings', label: 'Savings' },
+  { value: 'credit', label: 'Credit Card' },
+  { value: 'investment', label: 'Investment' },
+  { value: 'cash', label: 'Cash' },
+  { value: 'other', label: 'Other' },
+] as const
+
 export interface NavItem {
   to: string
   label: string
@@ -47,4 +56,4 @@ export const SECONDARY_NAV: NavItem[] = [
   { to: ROUTES.settings, label: 'Settings', icon: Settings },
 ]
 
-export const BRANDING_CREDIT = 'Novarix Finance' 
+export const BRANDING_CREDIT = 'Novarix Finance'
