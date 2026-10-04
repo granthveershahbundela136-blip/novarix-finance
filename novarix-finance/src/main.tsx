@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { AuthProvider } from './context/AuthContext'
 import { AppRoutes as App } from './routes/AppRoutes'
 import './index.css'
 
@@ -40,7 +41,9 @@ if (!rootElement) {
     <React.StrictMode>
       <ErrorBoundary>
         <BrowserRouter>
-          <App />
+          <AuthProvider>
+            <App />
+          </AuthProvider>
         </BrowserRouter>
       </ErrorBoundary>
     </React.StrictMode>
