@@ -173,3 +173,20 @@ export async function updateGoal(id: string, input: Partial<GoalInput>): Promise
 export async function deleteGoal(id: string): Promise<void> {
   assertOk(await supabase.from('goals').delete().eq('id', id))
 }
+export async function saveProfile(profileData: any) {
+  return updateProfile(profileData);
+}
+
+export async function updateProfile(profileData: any) {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error('User not authenticated');
+
+  const { data, error } = await supabase
+    .from('profiles')
+    .upsert({ id: user.id, ...profileData, updated_at: new Date().toISOString() })
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+}
