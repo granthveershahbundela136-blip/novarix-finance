@@ -5,23 +5,6 @@
 /* Design tokens (HSL channels). Light = zinc-50 canvas, white surfaces. Dark = zinc-950 canvas. */
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --surface: 0 0% 100%;
-    --subtle: 240 4.8% 95.9%;
-    --foreground: 240 10% 3.9%;
-    --muted-foreground: 240 3.8% 42%;
-    --border: 240 5.9% 90%;
-    --border-strong: 240 4.9% 83.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --ring: 240 5.9% 10%;
-    --positive: 163 94% 24%;
-    --negative: 0 72% 45%;
-    --warning: 32 95% 36%;
-    --info: 201 96% 32%;
-  }
-
-  .dark {
     --background: 240 10% 3.9%;
     --surface: 240 6% 7%;
     --subtle: 240 5.9% 10%;
@@ -39,8 +22,15 @@
   }
 
   * { @apply border-border; }
-  html { color-scheme: light; }
-  html.dark { color-scheme: dark; }
+  html { color-scheme: dark; }
+  
+  html, body, #root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
   body { @apply bg-background font-sans text-base text-foreground antialiased; }
   h1, h2, h3 { @apply tracking-tight; }
 
