@@ -26,13 +26,13 @@ export function LandingPage() {
       <header className="border-b border-border bg-surface">
         <div className="mx-auto flex h-12 max-w-6xl items-center justify-between px-4 md:px-8">
           <span className="text-sm font-semibold tracking-wide">NOVARIX FINANCE</span>
-          <nav aria-label="Account" className="flex items-center gap-1">
+          <nav aria-label="Account" className="flex items-center gap-2">
             {user ? (
-              <Link to={ROUTES.app} className="btn btn-primary h-8">Open dashboard</Link>
+              <Link to={ROUTES.app || '/app'} className="btn btn-primary h-8">Open dashboard</Link>
             ) : (
               <>
-                <Link to={ROUTES.login} className="btn btn-ghost h-8">Log In</Link>
-                <Link to={ROUTES.signup} className="btn btn-primary h-8">Get Started</Link>
+                <Link to={ROUTES.login || '/login'} className="btn btn-ghost h-8">Log In</Link>
+                <Link to={ROUTES.signup || '/signup'} className="btn btn-primary h-8">Get Started</Link>
               </>
             )}
           </nav>
@@ -48,11 +48,11 @@ export function LandingPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {user ? (
-                <Link to={ROUTES.app} className="btn btn-primary">Open dashboard</Link>
+                <Link to={ROUTES.app || '/app'} className="btn btn-primary">Open dashboard</Link>
               ) : (
                 <>
-                  <Link to={ROUTES.signup} className="btn btn-primary">Get Started</Link>
-                  <Link to={ROUTES.login} className="btn btn-secondary">Log In</Link>
+                  <Link to={ROUTES.signup || '/signup'} className="btn btn-primary">Get Started</Link>
+                  <Link to={ROUTES.login || '/login'} className="btn btn-secondary">Log In</Link>
                 </>
               )}
             </div>
