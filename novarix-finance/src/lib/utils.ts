@@ -32,3 +32,12 @@ export function daysUntil(targetDate: string | Date, relativeTo: Date = new Date
   const diffTime = target.getTime() - relativeTo.getTime();
   return Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
 }
+
+export function monthRange(date: Date = new Date()): { start: string; end: string } {
+  const start = new Date(date.getFullYear(), date.getMonth(), 1);
+  const end = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  return {
+    start: toISODate(start),
+    end: toISODate(end)
+  };
+}
