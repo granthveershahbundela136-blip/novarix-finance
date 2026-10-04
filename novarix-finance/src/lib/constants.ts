@@ -1,77 +1,48 @@
+import {
+  BarChart3,
+  CreditCard,
+  Target,
+  Wallet,
+  LayoutDashboard,
+  Receipt,
+  Lightbulb,
+  Settings,
+  type LucideIcon,
+} from 'lucide-react'
+
 export interface NavItem {
-  label: string;
-  path: string;
-  icon?: string;
+  to: string
+  label: string
+  icon: LucideIcon
+  end?: boolean
 }
 
-export const DEFAULT_LOCALE = 'en-US';
-export const DEFAULT_CURRENCY = 'USD';
-
-export const BRANDING_CREDIT = "Novarix Finance - Crafted By Novarix - Founded By Granthveer Bundela";
-
 export const ROUTES = {
-  HOME: '/',
-  LOGIN: '/login',
-  SIGNUP: '/signup',
-  APP: '/app',
-  DASHBOARD: '/app',
-  TRANSACTIONS: '/app/transactions',
-  ACCOUNTS: '/app/accounts',
-  BUDGETS: '/app/budgets',
-  GOALS: '/app/goals',
-  INSIGHTS: '/app/insights',
-  SETTINGS: '/app/settings'
-};
-
-export const ACCOUNT_TYPES = [
-  'checking',
-  'savings',
-  'credit_card',
-  'investment',
-  'loan',
-  'other'
-] as const;
-
-export const CURRENCIES = [
-  { code: 'USD', name: 'US Dollar ($)' },
-  { code: 'EUR', name: 'Euro (€)' },
-  { code: 'GBP', name: 'British Pound (£)' },
-  { code: 'INR', name: 'Indian Rupee (₹)' },
-  { code: 'CAD', name: 'Canadian Dollar (C$)' },
-  { code: 'AUD', name: 'Australian Dollar (A$)' },
-  { code: 'JPY', name: 'Japanese Yen (¥)' }
-];
-
-export const EXPENSE_CATEGORIES = [
-  'Housing',
-  'Utilities',
-  'Food & Dining',
-  'Transportation',
-  'Entertainment',
-  'Healthcare',
-  'Shopping',
-  'Personal Care',
-  'Education',
-  'Miscellaneous'
-];
-
-export const INCOME_CATEGORIES = [
-  'Salary',
-  'Freelance',
-  'Investments',
-  'Gifts',
-  'Other Income'
-];
+  landing: '/',
+  login: '/login',
+  signup: '/signup',
+  app: '/app',
+  transactions: '/transactions',
+  accounts: '/accounts',
+  budgets: '/budgets',
+  goals: '/goals',
+  insights: '/insights',
+  analytics: '/analytics',
+  settings: '/settings',
+}
 
 export const PRIMARY_NAV: NavItem[] = [
-  { label: 'Dashboard', path: '/app' },
-  { label: 'Transactions', path: '/app/transactions' },
-  { label: 'Accounts', path: '/app/accounts' },
-  { label: 'Budgets', path: '/app/budgets' },
-  { label: 'Goals', path: '/app/goals' },
-  { label: 'Insights', path: '/app/insights' }
-];
+  { to: ROUTES.app, label: 'Dashboard', icon: LayoutDashboard, end: true },
+  { to: ROUTES.transactions, label: 'Transactions', icon: Receipt },
+  { to: ROUTES.accounts, label: 'Accounts', icon: Wallet },
+  { to: ROUTES.budgets, label: 'Budgets', icon: CreditCard },
+  { to: ROUTES.goals, label: 'Goals', icon: Target },
+]
 
 export const SECONDARY_NAV: NavItem[] = [
-  { label: 'Settings', path: '/app/settings' }
-];
+  { to: ROUTES.insights, label: 'Insights', icon: Lightbulb },
+  { to: ROUTES.analytics, label: 'Analytics', icon: BarChart3 },
+  { to: ROUTES.settings, label: 'Settings', icon: Settings },
+]
+
+export const BRANDING_CREDIT = 'Novarix Finance'
