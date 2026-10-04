@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './routes/AppRoutes'
+import { AppRoutes as App } from './routes/AppRoutes'
 import './index.css'
 
 class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean; error: any }> {
