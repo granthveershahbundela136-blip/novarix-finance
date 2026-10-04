@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getProfile } from '@/lib/api'
 import { DEFAULT_CURRENCY } from '@/lib/constants'
 
-/** The signed-in user's currency from their profile (the database defaults it to USD). */
+/** The signed-in user's currency from their profile (the database defaults it to INR). */
 export function useCurrency() {
   const [currency, setCurrency] = useState<string>(DEFAULT_CURRENCY)
   useEffect(() => {

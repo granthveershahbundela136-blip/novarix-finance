@@ -10,10 +10,11 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 
-export const DEFAULT_CURRENCY = 'USD'
-export const DEFAULT_LOCALE = 'en-US'
+export const DEFAULT_CURRENCY = 'INR'
+export const DEFAULT_LOCALE = 'en-IN'
 
 export const CURRENCIES = [
+  { code: 'INR', label: 'Indian Rupee' },
   { code: 'USD', label: 'US Dollar' },
   { code: 'EUR', label: 'Euro' },
   { code: 'GBP', label: 'British Pound' },
@@ -22,7 +23,6 @@ export const CURRENCIES = [
   { code: 'JPY', label: 'Japanese Yen' },
   { code: 'CHF', label: 'Swiss Franc' },
   { code: 'CNY', label: 'Chinese Yuan' },
-  { code: 'INR', label: 'Indian Rupee' },
 ] as const
 
 export const ACCOUNT_TYPES = [

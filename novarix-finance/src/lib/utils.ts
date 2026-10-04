@@ -19,8 +19,8 @@ export function toISODate(date: Date = new Date()): string {
   return date.toISOString().split('T')[0];
 }
 
-export function formatCurrency(amount: number, currency = 'USD', options: Intl.NumberFormatOptions = {}): string {
-  return new Intl.NumberFormat('en-US', {
+export function formatCurrency(amount: number, currency = 'INR', options: Intl.NumberFormatOptions = {}): string {
+  return new Intl.NumberFormat(currency === 'INR' ? 'en-IN' : 'en-US', {
     style: 'currency',
     currency,
     maximumFractionDigits: 0,

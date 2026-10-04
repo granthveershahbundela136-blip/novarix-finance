@@ -5,7 +5,7 @@ import { useAuth } from '@/context/AuthContext'
 import { useResource } from '@/hooks/useResource'
 import { useTheme, type ThemePreference } from '@/hooks/useTheme'
 import { errorMessage, getProfile, saveProfile } from '@/lib/api'
-import { ABOUT_CREDIT, BRANDING_CREDIT, CURRENCIES } from '@/lib/constants'
+import { ABOUT_CREDIT, BRANDING_CREDIT, CURRENCIES, DEFAULT_CURRENCY } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import type { Profile } from '@/types'
 
@@ -29,7 +29,7 @@ function Section({ title, description, children }: { title: string; description:
 
 function ProfileForm({ profile, email, fallbackName, onSaved }: { profile: Profile | null; email: string; fallbackName: string; onSaved: () => void }) {
   const [name, setName] = useState(profile?.name ?? fallbackName)
-  const [currency, setCurrency] = useState(profile?.currency ?? 'USD')
+  const [currency, setCurrency] = useState(profile?.currency ?? DEFAULT_CURRENCY)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [saved, setSaved] = useState(false)
