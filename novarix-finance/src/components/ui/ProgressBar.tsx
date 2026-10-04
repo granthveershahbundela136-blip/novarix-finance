@@ -1,27 +1,32 @@
 import { cn } from '@/lib/utils'
 
-const TONES = { positive: 'bg-positive', warning: 'bg-warning', negative: 'bg-negative' } as const
-
-export function ProgressBar({
-  percent,
-  tone = 'positive',
-  label,
-}: {
+interface ProgressBarProps {
   percent: number
-  tone?: keyof typeof TONES
-  label: string
-}) {
-  const clamped = Math.max(0, Math.min(100, percent))
+  tone?: 'positive' | 'warning' | 'negative' | 'normal' | string
+  label?: string
+}
+
+const TONE_CLASSES: Record<string, string> = {
+  positive: 'bg-positive',
+  warning: 'bg-warning',
+  negative: 'bg-negative',
+  normal: 'bg-primary',
+}
+
+export function ProgressBar({ percent, tone = 'normal', label }: ProgressBarProps) {
+  const bounded = Math.min(100, Math.max(0, percent || 0))
+  const colorClass = TONE_CLASSES[tone] || 'bg-primary'
+
   return (
     <div
       role="progressbar"
-      aria-label={label}
+      aria-valuenow={bounded}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-valuenow={Math.round(clamped)}
-      className="h-1.5 w-full overflow-hidden rounded-full bg-border"
+      aria-label={label || 'Progress bar'}
+      className="h-2 w-full overflow-hidden rounded-full bg-subtle"
     >
-      <div className={cn('h-full rounded-full', TONES[tone])} style={{ width: `${clamped}%` }} />
+      <div className={cn('h-full transition-all duration-300', colorClass)} style={{ width: `${bounded}%` }} />
     </div>
   )
 }
