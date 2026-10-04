@@ -5,7 +5,7 @@ import { useAuth } from '@/context/AuthContext'
 import { useResource } from '@/hooks/useResource'
 import { useTheme, type ThemePreference } from '@/hooks/useTheme'
 import { errorMessage, getProfile, saveProfile } from '@/lib/api'
-import { BRANDING_CREDIT, CURRENCIES } from '@/lib/constants'
+import { ABOUT_CREDIT, BRANDING_CREDIT, CURRENCIES } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import type { Profile } from '@/types'
 
@@ -150,7 +150,7 @@ export function Settings() {
         </Section>
 
         <Section title="About" description="Product and founder credit">
-          <p className="text-sm text-muted-foreground">{BRANDING_CREDIT}</p>
+          <p className="whitespace-pre-line text-sm text-muted-foreground">{ABOUT_CREDIT}</p>
         </Section>
       </div>
     </div>

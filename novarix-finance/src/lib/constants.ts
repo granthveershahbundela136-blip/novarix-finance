@@ -95,3 +95,4 @@ export const SECONDARY_NAV: NavItem[] = [
 ]
 
 export const BRANDING_CREDIT = 'Novarix Finance'
+export const ABOUT_CREDIT = 'Crafted By - Novarix.ai\nFounded By - Granthveer Bundela'
