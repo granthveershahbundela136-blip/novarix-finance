@@ -13,30 +13,47 @@ import { LandingPage } from '@/pages/LandingPage'
 import { Settings } from '@/pages/Settings'
 import { Transactions } from '@/pages/Transactions'
 
+// Fallback paths in case constants load as undefined
+const landingPath = ROUTES?.landing || '/'
+const loginPath = ROUTES?.login || '/login'
+const signupPath = ROUTES?.signup || '/signup'
+const appPath = ROUTES?.app || '/app'
+const transactionsPath = ROUTES?.transactions || '/transactions'
+const accountsPath = ROUTES?.accounts || '/accounts'
+const budgetsPath = ROUTES?.budgets || '/budgets'
+const goalsPath = ROUTES?.goals || '/goals'
+const insightsPath = ROUTES?.insights || '/insights'
+const analyticsPath = ROUTES?.analytics || '/analytics'
+const settingsPath = ROUTES?.settings || '/settings'
+
 export function AppRoutes() {
   return (
     <Routes>
-      <Route path={ROUTES.landing} element={<LandingPage />} />
+      {/* Public Landing Page */}
+      <Route path={landingPath} element={<LandingPage />} />
 
+      {/* Guest Only Routes */}
       <Route element={<GuestOnly />}>
-        <Route path={ROUTES.login} element={<Auth key="login" mode="login" />} />
-        <Route path={ROUTES.signup} element={<Auth key="signup" mode="signup" />} />
+        <Route path={loginPath} element={<Auth key="login" mode="login" />} />
+        <Route path={signupPath} element={<Auth key="signup" mode="signup" />} />
       </Route>
 
+      {/* Authenticated Routes */}
       <Route element={<RequireAuth />}>
         <Route element={<AppShell />}>
-          <Route path={ROUTES.app} element={<Dashboard />} />
-          <Route path={ROUTES.transactions} element={<Transactions />} />
-          <Route path={ROUTES.accounts} element={<Accounts />} />
-          <Route path={ROUTES.budgets} element={<Budgets />} />
-          <Route path={ROUTES.goals} element={<Goals />} />
-          <Route path={ROUTES.insights} element={<InsightsPage />} />
-          <Route path={ROUTES.analytics} element={<Analytics />} />
-          <Route path={ROUTES.settings} element={<Settings />} />
+          <Route path={appPath} element={<Dashboard />} />
+          <Route path={transactionsPath} element={<Transactions />} />
+          <Route path={accountsPath} element={<Accounts />} />
+          <Route path={budgetsPath} element={<Budgets />} />
+          <Route path={goalsPath} element={<Goals />} />
+          <Route path={insightsPath} element={<InsightsPage />} />
+          <Route path={analyticsPath} element={<Analytics />} />
+          <Route path={settingsPath} element={<Settings />} />
         </Route>
       </Route>
 
-      <Route path="*" element={<Navigate to={ROUTES.landing} replace />} />
+      {/* Fallback to Landing Page */}
+      <Route path="*" element={<Navigate to={landingPath} replace />} />
     </Routes>
   )
 }
