@@ -7,9 +7,17 @@ import { useFinanceData } from '@/hooks/useFinanceData'
 import { ROUTES } from '@/lib/constants'
 import { budgetStatus } from '@/lib/financeStats'
 import { cn, formatCurrency, formatDate } from '@/lib/utils'
-import { actionLabel } from '@/pages/InsightsPage'
 
 const TONE = { normal: 'positive', approaching: 'warning', exceeded: 'negative' } as const
+
+function getActionLabel(route?: string) {
+  if (!route) return 'View'
+  if (route.includes('budgets')) return 'Adjust budget'
+  if (route.includes('goals')) return 'View goal'
+  if (route.includes('transactions')) return 'Add transaction'
+  if (route.includes('accounts')) return 'View accounts'
+  return 'Take action'
+}
 
 function Section({ title, to, linkLabel, children }: { title: string; to: string; linkLabel: string; children: ReactNode }) {
   return (
@@ -158,7 +166,7 @@ export function Dashboard() {
                     </div>
                     {i.relatedRoute ? (
                       <Link to={i.relatedRoute} className="btn btn-secondary h-8 shrink-0">
-                        {actionLabel(i.relatedRoute)}
+                        {getActionLabel(i.relatedRoute)}
                       </Link>
                     ) : null}
                   </li>
