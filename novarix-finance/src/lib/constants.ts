@@ -1,3 +1,9 @@
+export interface NavItem {
+  label: string;
+  path: string;
+  icon?: string;
+}
+
 export const DEFAULT_LOCALE = 'en-US';
 
 export const BRANDING_CREDIT = "Novarix Finance - Crafted By Novarix - Founded By Granthveer Bundela";
@@ -47,12 +53,15 @@ export const INCOME_CATEGORIES = [
   'Other Income'
 ];
 
-export const PRIMARY_NAV = [
+export const PRIMARY_NAV: NavItem[] = [
   { label: 'Dashboard', path: '/app' },
   { label: 'Transactions', path: '/app/transactions' },
   { label: 'Accounts', path: '/app/accounts' },
   { label: 'Budgets', path: '/app/budgets' },
   { label: 'Goals', path: '/app/goals' },
-  { label: 'Insights', path: '/app/insights' },
+  { label: 'Insights', path: '/app/insights' }
+];
+
+export const SECONDARY_NAV: NavItem[] = [
   { label: 'Settings', path: '/app/settings' }
 ];
