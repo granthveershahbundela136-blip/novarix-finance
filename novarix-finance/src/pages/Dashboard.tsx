@@ -156,9 +156,11 @@ export function Dashboard() {
                       <h3 className="text-sm font-medium">{i.title}</h3>
                       <p className="mt-0.5 line-clamp-2 text-sm text-muted-foreground">{i.description}</p>
                     </div>
-                    <Link to={i.relatedRoute} className="btn btn-secondary h-8 shrink-0">
-                      {actionLabel(i.relatedRoute)}
-                    </Link>
+                    {i.relatedRoute ? (
+                      <Link to={i.relatedRoute} className="btn btn-secondary h-8 shrink-0">
+                        {actionLabel(i.relatedRoute)}
+                      </Link>
+                    ) : null}
                   </li>
                 ))}
               </ul>

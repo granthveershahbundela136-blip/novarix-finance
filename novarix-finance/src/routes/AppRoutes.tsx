@@ -1,26 +1,17 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { AppShell } from '@/components/layout/AppShell'
-import { GuestOnly, RequireAuth, useAuth } from '@/context/AuthContext'
+import { GuestOnly, RequireAuth } from '@/context/AuthContext'
 import { ROUTES } from '@/lib/constants'
+import { Accounts } from '@/pages/Accounts'
+import { Analytics } from '@/pages/Analytics'
 import { Auth } from '@/pages/Auth'
+import { Budgets } from '@/pages/Budgets'
+import { Dashboard } from '@/pages/Dashboard'
+import { Goals } from '@/pages/Goals'
+import { InsightsPage } from '@/pages/InsightsPage'
 import { LandingPage } from '@/pages/LandingPage'
-
-/** Temporary page body until each section is built in a later module. */
-function PagePlaceholder({ title, description }: { title: string; description: string }) {
-  const { displayName } = useAuth()
-  return (
-    <div>
-      <h1 className="text-xl font-semibold">{title}</h1>
-      <p className="mt-1 text-sm text-muted-foreground">{description}</p>
-      <div className="card mt-6 px-4 py-10 text-center">
-        <p className="text-sm font-medium">Nothing here yet</p>
-        <p className="mt-1 text-sm text-muted-foreground">
-          {displayName ? `${displayName}, this` : 'This'} section arrives in an upcoming module.
-        </p>
-      </div>
-    </div>
-  )
-}
+import { Settings } from '@/pages/Settings'
+import { Transactions } from '@/pages/Transactions'
 
 export function AppRoutes() {
   return (
@@ -34,13 +25,14 @@ export function AppRoutes() {
 
       <Route element={<RequireAuth />}>
         <Route element={<AppShell />}>
-          <Route path={ROUTES.app} element={<PagePlaceholder title="Dashboard" description="Your balances, spending and goals at a glance." />} />
-          <Route path={ROUTES.transactions} element={<PagePlaceholder title="Transactions" description="Every income and expense, searchable and filterable." />} />
-          <Route path={ROUTES.accounts} element={<PagePlaceholder title="Accounts" description="Bank accounts, cards, cash and wallets." />} />
-          <Route path={ROUTES.budgets} element={<PagePlaceholder title="Budgets" description="Monthly limits by category." />} />
-          <Route path={ROUTES.goals} element={<PagePlaceholder title="Goals" description="Savings targets and progress." />} />
-          <Route path={ROUTES.insights} element={<PagePlaceholder title="Insights" description="Notes on how your spending is changing." />} />
-          <Route path={ROUTES.settings} element={<PagePlaceholder title="Settings" description="Profile, currency and preferences." />} />
+          <Route path={ROUTES.app} element={<Dashboard />} />
+          <Route path={ROUTES.transactions} element={<Transactions />} />
+          <Route path={ROUTES.accounts} element={<Accounts />} />
+          <Route path={ROUTES.budgets} element={<Budgets />} />
+          <Route path={ROUTES.goals} element={<Goals />} />
+          <Route path={ROUTES.insights} element={<InsightsPage />} />
+          <Route path={ROUTES.analytics} element={<Analytics />} />
+          <Route path={ROUTES.settings} element={<Settings />} />
         </Route>
       </Route>
 

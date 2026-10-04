@@ -11,7 +11,8 @@ const SEVERITY_BADGE: Record<InsightSeverity, { label: string; className: string
   low: { label: 'Low priority', className: 'border-border-strong text-muted-foreground' },
 }
 
-export function actionLabel(route: string) {
+export function actionLabel(route?: string) {
+  if (!route) return 'View details'
   if (route.startsWith(ROUTES.budgets)) return 'Open budgets'
   if (route.startsWith(ROUTES.goals)) return 'Open goals'
   if (route.startsWith(ROUTES.analytics)) return 'Open analytics'
@@ -28,9 +29,11 @@ function InsightRow({ insight, showSeverity }: { insight: FinancialInsight; show
       </div>
       <p className="mt-1 text-sm text-muted-foreground">{insight.description}</p>
       <p className="mt-1.5 text-sm">{insight.recommendation}</p>
-      <Link to={insight.relatedRoute} className="btn btn-secondary mt-3 h-8">
-        {actionLabel(insight.relatedRoute)}
-      </Link>
+      {insight.relatedRoute && (
+        <Link to={insight.relatedRoute} className="btn btn-secondary mt-3 h-8">
+          {actionLabel(insight.relatedRoute)}
+        </Link>
+      )}
     </li>
   )
 }

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
-import { ROUTES } from '@/lib/constants'
+import { BRANDING_CREDIT, ROUTES } from '@/lib/constants'
 import { cn, formatCurrency } from '@/lib/utils'
 
 const SAMPLE_ROWS = [
@@ -90,11 +90,18 @@ export function LandingPage() {
             ))}
           </div>
         </section>
+
+        <section id="about" className="border-t border-border" aria-labelledby="about-heading">
+          <div className="mx-auto max-w-6xl px-4 py-12 md:px-8">
+            <h2 id="about-heading" className="text-sm font-semibold">About</h2>
+            <p className="mt-1.5 max-w-2xl text-sm text-muted-foreground">{BRANDING_CREDIT}</p>
+          </div>
+        </section>
       </main>
 
       <footer className="border-t border-border">
         <div className="mx-auto max-w-6xl px-4 py-6 text-xs text-muted-foreground md:px-8">
-          © {new Date().getFullYear()} Novarix Finance
+          © {new Date().getFullYear()} {BRANDING_CREDIT}
         </div>
       </footer>
     </div>

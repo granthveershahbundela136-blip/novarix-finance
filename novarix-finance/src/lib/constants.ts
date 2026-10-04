@@ -23,8 +23,13 @@ export const EXPENSE_CATEGORIES = [
   'Other',
 ] as const
 
+export const ACCOUNT_TYPES = ['Cash', 'Bank', 'Savings', 'Wallet', 'Other'] as const
+
 export const DEFAULT_CURRENCY = 'INR'
 export const DEFAULT_LOCALE = 'en-IN'
+
+export const BRANDING_CREDIT =
+  'Novarix Finance - Crafted By Novarix - Founded By Granthveer Bundela'
 
 export const ROUTES = {
   landing: '/',
@@ -36,6 +41,7 @@ export const ROUTES = {
   budgets: '/app/budgets',
   goals: '/app/goals',
   insights: '/app/insights',
+  analytics: '/app/analytics',
   settings: '/app/settings',
 } as const
 
